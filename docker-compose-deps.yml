@@ -7,4 +7,4 @@ services:
          - ./src/main/shell:/shell_scripts
          - ./src/main/sql:/sql_scripts
       ports:
-         - 5432:5432
+         - 5433:5432
