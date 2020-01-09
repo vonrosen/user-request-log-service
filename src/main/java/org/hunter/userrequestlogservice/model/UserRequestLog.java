@@ -1,30 +1,20 @@
 package org.hunter.userrequestlogservice.model;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.UUID;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Table("user_request_log")
-public class UserRequestLog {
+public class UserRequestLog implements Serializable {
 
-    @Id
-    private UUID id;
-    @Column(value = "user_id")
     private UUID userId;
-    @Column(value = "max_payment_value_cents")
     private BigInteger maxPaymentAmountCents;
 
-    public UserRequestLog(UUID id, UUID userId, BigInteger maxPaymentAmountCents) {
-        this.id = id;
+    public UserRequestLog() {}
+    public UserRequestLog(@JsonProperty UUID userId, @JsonProperty BigInteger maxPaymentAmountCents) {
         this.userId = userId;
         this.maxPaymentAmountCents = maxPaymentAmountCents;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public UUID getUserId() {
