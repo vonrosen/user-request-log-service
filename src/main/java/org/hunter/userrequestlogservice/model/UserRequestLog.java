@@ -1,7 +1,7 @@
 package org.hunter.userrequestlogservice.model;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,20 +9,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UserRequestLog implements Serializable {
 
     private UUID userId;
-    private BigInteger maxPaymentAmountCents;
+    private BigDecimal maxPaymentAmount;
 
     public UserRequestLog() {}
-    public UserRequestLog(@JsonProperty UUID userId, @JsonProperty BigInteger maxPaymentAmountCents) {
+    public UserRequestLog(@JsonProperty UUID userId, @JsonProperty BigDecimal maxPaymentAmount) {
         this.userId = userId;
-        this.maxPaymentAmountCents = maxPaymentAmountCents;
+        this.maxPaymentAmount = maxPaymentAmount;
     }
 
     public UUID getUserId() {
         return userId;
     }
 
-    public BigInteger getMaxPaymentAmountCents() {
-        return maxPaymentAmountCents;
+    public BigDecimal getMaxPaymentAmount() {
+        return maxPaymentAmount;
     }
 
 }
