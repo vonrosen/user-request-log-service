@@ -14,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.hunter.model.UserRequestLogView;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/userrequestlog")
 public class UserRequestLogServiceController {
 
@@ -21,7 +22,6 @@ public class UserRequestLogServiceController {
     RabbitMqService rabbitMqService;
 
     @PostMapping(consumes = "application/json")
-    @CrossOrigin(origins = "http://localhost:3000")
     @ResponseStatus(HttpStatus.CREATED)
     public void addUserRequestLog(@RequestBody(required = true) UserRequestLogView userRequestLogView) {
         if (userRequestLogView.getUserId() == null || userRequestLogView.getMaxPaymentAmount() == null) {
